@@ -2,7 +2,7 @@
 
 namespace App\Actions\Auth;
 
-use App\Enums\Users\UserRole;
+use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 

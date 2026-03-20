@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Api\Customer;
 
 use App\Actions\Customer\CustomerVendorApplyAction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Vendor\CustomervendorApplyRequest;
-
+use App\Http\Requests\Customer\CustomervendorApplyRequest;
 class CustomerVendorApplyController extends Controller
 {
     public function apply(CustomervendorApplyRequest $request, CustomerVendorApplyAction $action)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums\Users;
+namespace App\Enums;
 
 enum VendorStatus: string
 {
