@@ -27,14 +27,14 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::middleware('role:customer')->controller(CartController::class)->prefix('customer/cart')->group(function () {
-        Route::post('/', 'index');
+        Route::get('/', 'index');
         Route::post('/store', 'store');
         Route::put('/update', 'update');
-        Route::delete('/destroy', 'destroy');
+        Route::delete('/remove', 'destroy');
     });
 
     Route::middleware('role:customer')->controller(CheckoutController::class)->prefix('customer/checkout')->group(function () {
-        Route::post('/checkout', 'store');
+        Route::post('/', 'store');
     });
 
     Route::middleware('role:customer')->controller(OrderController::class)->prefix('customer/orders')->group(function () {
