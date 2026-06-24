@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Customer;
 
 use App\Actions\Customer\Product\GetProductsAction;
+use App\Actions\Customer\Product\SearchProductsAction;
 use App\Actions\Customer\Product\ShowProductAction;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Customer\Product\ProductResource;
@@ -38,7 +39,18 @@ class ProductController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Product retrieved successfully.',
-            'data' => new ProductResource($product)
+            'data' => new ProductResource($product),
+        ]);
+    }
+
+    public function search(Request $request, SearchProductsAction $action): JsonResponse
+    {
+        $products = $action->execute($request);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Products retrieved successfully.',
+            'data' => ProductResource::collection($products),
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -16,6 +17,7 @@ class Product extends Model
         'price',
         'stock',
         'image',
+        'status',
     ];
 
     protected function casts(): array
@@ -23,6 +25,7 @@ class Product extends Model
         return [
             'price' => 'decimal:2',
             'stock' => 'integer',
+            'status' => ProductStatus::class,
         ];
     }
 
